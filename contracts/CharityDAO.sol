@@ -105,6 +105,7 @@ contract CharityDAO {
                 value: proposal.donationAmount
             }("");
             require(success, "TRANSFER FAILED");
+            treasuryBalance = treasuryBalance - proposal.donationAmount;
         } else {
             proposal.status = ProposalStatus.Failed;
         }
